@@ -22,3 +22,8 @@ exports.create_task = async function(req,res) {
 
     res.send("Ready")
 }
+
+exports.get_all_tasks = async function(req,res){
+   let retorno = await repository.getAllTasks(); 
+   res.send(retorno);
+}

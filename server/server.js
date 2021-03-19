@@ -5,6 +5,7 @@ const db = require('./db/db-manager');
 
 var taskRoute = require('./routes/task');
 app.use(express.json());
+
 app.use('/tasks',taskRoute);
 
 app.get('/', (req, res) => res.send('Server Working'))

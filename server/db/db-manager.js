@@ -4,6 +4,7 @@ async function ConnectTo(uri){
     const client = new MongoClient(uri,{ useUnifiedTopology: true});
     try {
         await client.connect();
+        console.log("Conexción exitosa")
     } catch (e) {
         console.error(e);
     }
