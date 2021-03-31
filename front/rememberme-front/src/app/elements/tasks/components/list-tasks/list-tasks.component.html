@@ -1,0 +1,4 @@
+<h1>All the tasks</h1>
+<div *ngFor="let item of tasks; let i = index">
+   <app-show-task [task]="item"></app-show-task>
+</div>
