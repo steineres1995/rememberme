@@ -1,25 +1,10 @@
 const repository = require('../db/rememberRepository');
+const serviceTask = require('../services/task_service');
 
 exports.create_task = async function(req,res) {
 
-    let ts = Date.now();
-
-    let date_ob = new Date(ts);
-
-    let date = date_ob.getDate();
-    let month = date_ob.getMonth() + 1;
-    let year = date_ob.getFullYear();
-
-    let fullDate= year + "-" + month + "-" + date;
-
-    const newTask ={
-        title: req.body.title,
-        description: req.body.description,
-        created: fullDate
-    };
-
-    await repository.createTask(newTask);
-
+    let task = serviceTask.createTask(req.title, req.description);
+    await repository.createTask(task);
     res.send("Ready")
 }
 
